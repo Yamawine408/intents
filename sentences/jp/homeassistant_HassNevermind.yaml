@@ -1,0 +1,5 @@
+language: jp
+intents:
+  HassNevermind:
+    data:
+      - sentences: []

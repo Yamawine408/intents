@@ -1,0 +1,8 @@
+language: jp
+intents:
+  HassTurnOn:
+    data:
+      - sentences: []
+        slots:
+          domain: scene
+          name: all

@@ -1,0 +1,8 @@
+language: jp
+intents:
+  HassTurnOff:
+    data:
+      - sentences: []
+        slots:
+          domain: valve
+          name: all

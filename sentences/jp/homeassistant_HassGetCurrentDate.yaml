@@ -1,0 +1,5 @@
+language: jp
+intents:
+  HassGetCurrentDate:
+    data:
+      - sentences: []

@@ -1,0 +1,301 @@
+language: jp
+responses:
+  errors:
+    no_intent: "ごめんなさい、よくわかりませんでした"
+    handle_error: "予期しないエラーが発生しました"
+    no_area: "ごめんなさい、{{ area }} という名前のエリアを知りません"
+    no_domain: "ごめんなさい、{{ domain }} という名前のドメインを知りません"
+    no_domain_in_area: "ごめんなさい、{{ area }} にあるはずの {{ domain }} という名前のドメインを知りません"
+    no_device_class: "ごめんなさい、{{ device_class }} という名前のデバイスクラスを知りません"
+    no_device_class_in_area: TODO Sorry, I am not aware of any {{ device_class }}
+      in the {{ area }} area
+    no_entity: TODO Sorry, I am not aware of any device called {{ entity }}
+    no_entity_in_area: TODO Sorry, I am not aware of any device called {{ entity }}
+      in the {{ area }} area
+    no_entity_exposed: TODO Sorry, {{ entity }} is not exposed
+    no_entity_in_area_exposed: TODO Sorry, {{ entity }} in the {{ area }} area is
+      not exposed
+    no_domain_exposed: TODO Sorry, no {{ domain }} is exposed
+    no_domain_in_area_exposed: TODO Sorry, no {{ domain }} in the {{ area }} area
+      is exposed
+    no_device_class_exposed: TODO Sorry, no {{ device_class }} is exposed
+    no_device_class_in_area_exposed: TODO Sorry, no {{ device_class }} in the {{ area
+      }} area is exposed
+    duplicate_entities: TODO Sorry, there are multiple devices called {{ entity }}
+    duplicate_entities_in_area: TODO Sorry, there are multiple devices called {{ entity
+      }} in the {{ area }} area
+
+lists:
+  color:
+    values:
+      - in: "白[(く|に)]"
+        out: "white"
+      - in: "黒[(く|に)]"
+        out: "black"
+      - in: "赤[色][(く|に)]"
+        out: "red"
+      - in: "オレンジ[色][に]"
+        out: "orange"
+      - in: "黄[色][に]"
+        out: "yellow"
+      - in: "緑[色][に]"
+        out: "green"
+      - in: "青[(く|に)]"
+        out: "blue"
+      - in: "紫[色][に]"
+        out: "purple"
+      - in: "茶[色][に]"
+        out: "brown"
+  brightness:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  brightness_level:
+    values:
+      - in: (マックス|最大[に]|一番|最も)明るく)
+        out: 100
+      - in: (最小[に]|一番|最も)暗く)
+        out: 1
+  cover_states:
+    values:
+      - in: "開けて"
+        out: "open"
+      - in: "(閉めて|閉じて)"
+        out: "closed"
+      - in: "開けてます"
+        out: "opening"
+      - in: "閉めてます"
+        out: "closing"
+  cover_classes:
+    values:
+      - in: "(オーニング|日除)"
+        out: awning
+      - in: "(ブラインド|シェード)"
+        out: blind
+      - in: "カーテン"
+        out: curtain
+      - in: "(ドア|扉)"
+        out: door
+      - in: "(ガレージ|車庫)"
+        out: garage
+      - in: "(門|玄関)"
+        out: gate
+      - in: "(ブラインド|シェード)"
+        out: shade
+      - in: "(シャッター)"
+        out: shutter
+      - in: "(窓|ウィンドウ)"
+        out: window
+  lock_domains:
+    values:
+      - in: "(鍵|ロック)"
+        out: "lock"
+  lock_states:
+    values:
+      - in: "(しまっている|かかっている)"
+        out: "locked"
+      - in: "(開いている|かかっていない)"
+        out: "unlocked"
+  on_off_domains:
+    values:
+      - in: "(ライト|電灯|電気)"
+        out: light
+      - in: "(換気扇|ファン)"
+        out: fan
+      - in: "(スイッチ)"
+        out: switch
+  on_off_states:
+    values:
+      - in: "(オン)"
+        out: "on"
+      - in: "(オフ)"
+        out: "off"
+  temperature:
+    range:
+      type: "温度"
+      from: 0
+      to: 100
+  temperature_unit:
+    values:
+      - in: "セ氏"
+        out: "Celsius"
+      - in: "華氏"
+        out: "Fahrenheit"
+  # binary_sensor
+  bs_battery_states:
+    values:
+      - in: "(から|低い|最低)"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_battery_charging_states:
+    values:
+      - in: "(充電中)"
+        out: "on"
+      - in: "充電完了"
+        out: "off"
+  bs_carbon_monoxide_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_cold_states:
+    values:
+      - in: "寒い"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_connectivity_states:
+    values:
+      - in: "接続"
+        out: "on"
+      - in: "切断"
+        out: "off"
+  bs_door_states:
+    values:
+      - in: "あいている"
+        out: "on"
+      - in: "(閉まっている|閉じている)"
+        out: "off"
+  bs_garage_door_states:
+    values:
+      - in: "あいている"
+        out: "on"
+      - in: "(閉まっている|閉じている)"
+        out: "off"
+  bs_window_states:
+    values:
+      - in: "あいている"
+        out: "on"
+      - in: "(閉まっている|閉じている)"
+        out: "off"
+  bs_gas_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_heat_states:
+    values:
+      - in: "暑い"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_light_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "暗い"
+        out: "off"
+  bs_problem_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_safety_states:
+    values:
+      - in: "異常"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_smoke_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_sound_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_tamper_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+  bs_update_states:
+    values:
+      - in: "最新ではありません"
+        out: "on"
+      - in: "最新です"
+        out: "off"
+  bs_vibration_states:
+    values:
+      - in: "検出"
+        out: "on"
+      - in: "正常"
+        out: "off"
+
+  shopping_list_item:
+    wildcard: true
+  zone:
+    wildcard: true
+  position:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  position_level:
+    values:
+      - in: "(最大)"
+        out: 100
+      - in: "(最低)"
+        out: 1
+  volume_level:
+    range:
+      type: "percentage"
+      from: 0
+      to: 100
+  volume_mapping:
+    values:
+      - in: "(最大|一番大きく)"
+        out: 100
+      - in: "(最低|一番小さく)"
+        out: 1
+  timer_seconds:
+    range:
+      from: 1
+      to: 100
+  timer_minutes:
+    range:
+      from: 1
+      to: 100
+  timer_hours:
+    range:
+      from: 1
+      to: 100
+  timer_name:
+    wildcard: true
+  timer_command:
+    wildcard: true
+  response:
+    wildcard: true
+
+
+expansion_rules: {}
+
+skip_words:
+  - "あ"
+  - "えーと"
+  - "おっと"
+  - "お願い"
+  - "そういえば"
+  - "ところで"
+  - "それから"
+  - "ちょっと"
+  - "すぐに"
+  - "どうか"
+  - "よろしく"
+  - "できれば"
+  - "そうだ"
+  - "でも"
+  - "してください"
+  - "して[ね|よ]}"
+  - "[し]ろ[よ]"
+  - "[して]ください"

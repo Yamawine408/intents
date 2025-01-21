@@ -1,0 +1,5 @@
+language: jp
+intents:
+  HassMediaPrevious:
+    data:
+      - sentences: []

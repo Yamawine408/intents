@@ -1,0 +1,5 @@
+language: jp
+intents:
+  HassVacuumReturnToBase:
+    data:
+      - sentences: []
